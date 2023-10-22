@@ -26,4 +26,31 @@ exports.register = async (req,res)=>{
 }
 
 
-// exports.login = 
+
+exports.login = async (req, res) => {
+
+    try {
+        const user = await User.findOne({ UserName: req.body.UserName })
+        const isAuth = bcrypt.compareSync(req.body.Password, user.Password);
+        if (isAuth) {
+            const payload = {
+                UserName: req.body.UserName,
+            };
+            const options = {
+                expiresIn: '1d',
+            };
+            var token = jwt.sign(payload, process.env.SECRET_KEY, options);
+            user.token = token;
+            const doc = await user.save();
+            console.log(doc);
+            res.status(201).json(token);
+        }
+        else
+            res.send("Wrong Password or UserName")
+    }
+    catch (err) {
+        res.status(401).json(err);
+    }
+
+
+}

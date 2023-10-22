@@ -2,8 +2,8 @@ const express = require('express')
 const jwt = require('jsonwebtoken')
 const {default:mongoose} = require('mongoose');
 const authRouter = require('./routes/auth')
-// const buyerRouter = require('./routes/buyer')
-// const sellerRouter = require('./routes/seller')
+const buyerRouter = require('./routes/buyer')
+const sellerRouter = require('./routes/seller')
 
 
 require('dotenv').config()
@@ -45,8 +45,8 @@ async function main()
 }
 
 app.use('/api/auth',authRouter.AuthRoutes)
-// app.use('/api/buyer',auth,buyerRouter.router.BuyerRoutes )
-// app.use('/api/seller',auth,sellerRouter.SellerRoutes )
+app.use('/api/buyer',auth,buyerRouter.buyerRoutes )
+app.use('/api/seller',auth,sellerRouter.sellerRoutes )
 
 
 
@@ -71,7 +71,7 @@ app.use('/api/auth',authRouter.AuthRoutes)
 
 
 
-app.listen(process.env.PORT || 5000, () => {
+app.listen(process.env.PORT, () => {
     console.log("Server is listening...")
 })
 
