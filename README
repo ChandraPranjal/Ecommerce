@@ -20,4 +20,10 @@ POST /api/auth/login
     "Password":"89929"
 }
 
+POST /api/seller/create-catalog
 
+{
+    "SellerId" : "653569516ea7e77bd56864c6", 
+    "name" : "tomato", 
+    "price" : 250
+}
