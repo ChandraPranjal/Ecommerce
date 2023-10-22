@@ -20,8 +20,23 @@ POST /api/auth/login
     "Password":"89929"
 }
 
-POST /api/seller/create-catalog
+POST /api/buyer/create-order/:seller_id
+{
+    "name":"potato", 
+    "quantity" : 250
+}
 
+
+
+GET /api/seller/orders
+{
+   "SellerId" : "653569516ea7e77bd56864c6"
+}
+
+NOTE : Assumed that SellerId is given in req.body, otherwise there is no way to know for which seller's Order we need to retrieve 
+
+
+POST /api/seller/create-catalog
 {
     "SellerId" : "653569516ea7e77bd56864c6", 
     "name" : "tomato", 

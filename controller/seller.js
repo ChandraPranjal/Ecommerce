@@ -2,10 +2,10 @@ const model = require('../model/user'); // Import your User model
 const User = model.User
 
 exports.getOrders = async (req, res) => {
-    const userId = req.body.UserId; // Assuming the request body contains the seller's user ID
+    const SellerId = req.body.SellerId; // Assuming the request body contains the seller's user ID
 
     try {
-        const seller = await User.findOne({ _id: userId });
+        const seller = await User.findOne({ _id: SellerId });
         if (!seller) {
             return res.status(404).json({ message: 'Seller not found' });
         }
