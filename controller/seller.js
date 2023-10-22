@@ -1,4 +1,5 @@
-const User = require('../model/user'); // Import your User model
+const model = require('../model/user'); // Import your User model
+const User = model.User
 
 exports.getOrders = async (req, res) => {
     const userId = req.body.UserId; // Assuming the request body contains the seller's user ID

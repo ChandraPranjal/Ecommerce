@@ -1,0 +1,23 @@
+Instruction to run on Local Machine
+
+npm run dev
+
+----------------------------------------------------
+Sample Input:
+
+POST /api/auth/register
+
+{
+    "UserName" :"Ritesh",
+    "Password":"89929",
+    "UserType":"seller"
+}
+
+POST /api/auth/login
+
+{
+    "UserName" :"Ritesh",
+    "Password":"89929"
+}
+
+
