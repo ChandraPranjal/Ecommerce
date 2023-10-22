@@ -20,7 +20,7 @@ POST /api/auth/login
     "Password":"89929"
 }
 
-POST /api/buyer/create-order/:seller_id
+POST /api/buyer/create-order/653569516ea7e77bd56864c6
 {
     "name":"potato", 
     "quantity" : 250
