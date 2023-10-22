@@ -5,7 +5,7 @@ npm run dev
 ----------------------------------------------------
 Sample Input:
 
-POST /api/auth/register
+POST localhost:8080/api/auth/register
 
 {
     "UserName" :"Ritesh",
@@ -13,14 +13,18 @@ POST /api/auth/register
     "UserType":"seller"
 }
 
-POST /api/auth/login
+POST localhost:8080/api/auth/login
 
 {
     "UserName" :"Ritesh",
     "Password":"89929"
 }
 
-POST /api/buyer/create-order/653569516ea7e77bd56864c6
+GET localhost:8080/api/buyer/list-of-sellers
+
+GET localhost:8080/api/buyer/seller-catalog/653569516ea7e77bd56864c6
+
+POST localhost:8080/api/buyer/create-order/653569516ea7e77bd56864c6
 {
     "name":"potato", 
     "quantity" : 250
@@ -28,7 +32,7 @@ POST /api/buyer/create-order/653569516ea7e77bd56864c6
 
 
 
-GET /api/seller/orders
+GET localhost:8080/api/seller/orders
 {
    "SellerId" : "653569516ea7e77bd56864c6"
 }
@@ -36,7 +40,7 @@ GET /api/seller/orders
 NOTE : Assumed that SellerId is given in req.body, otherwise there is no way to know for which seller's Order we need to retrieve 
 
 
-POST /api/seller/create-catalog
+POST localhost:8080/api/seller/create-catalog
 {
     "SellerId" : "653569516ea7e77bd56864c6", 
     "name" : "tomato", 
