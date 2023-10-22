@@ -1,9 +1,9 @@
 const express = require('express')
 const jwt = require('jsonwebtoken')
 const {default:mongoose} = require('mongoose');
-
-const buyerRouter = require('./routes/buyer')
-const sellerRouter = require('./routes/seller')
+const authRouter = require('./routes/auth')
+// const buyerRouter = require('./routes/buyer')
+// const sellerRouter = require('./routes/seller')
 
 
 require('dotenv').config()
@@ -44,9 +44,9 @@ async function main()
     console.log("database connected")
 }
 
-app.use('/api',authRouter.AuthRoutes)
-app.use('/api/buyer',auth,buyerRouter.router.BuyerRoutes )
-app.use('/api/seller',auth,sellerRouter.SellerRoutes )
+app.use('/api/auth',authRouter.AuthRoutes)
+// app.use('/api/buyer',auth,buyerRouter.router.BuyerRoutes )
+// app.use('/api/seller',auth,sellerRouter.SellerRoutes )
 
 
 
